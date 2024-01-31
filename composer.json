@@ -11,6 +11,7 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "unicodeveloper/laravel-paystack": "^1.1",
         "willvincent/laravel-rateable": "^2.4"
     },
     "require-dev": {
@@ -26,7 +27,8 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files":["app/helpers/helper.php"]
     },
     "autoload-dev": {
         "psr-4": {

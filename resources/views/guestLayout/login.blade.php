@@ -1,48 +1,63 @@
-<?php 
 
-  ?>
 <x-guestLayout>
-  
-<div class="row container-fluid ">
-<div class="col-lg-6 mx-auto mt-5">
-                    <div class="card border-0">
-                        <div class="card-header bg-light text-center p-4">
-                            <h1 class="m-0">Login</h1>
-                        </div>
-                        <div class="card-body rounded-bottom bg-primary p-5">
-                            <form action="/user/login?id={{isset($id)? $id : ''}}" method="post">
-                                
-                                @csrf
-                            <div class="form-group">
-                                    <select class="custom-select border-0 px-4" style="height: 47px;"  name="user">
-                                        <option selected>Select a user </option>
-                                        <option value="0" >Staff</option>
-                                        <option value="1">Student</option>
-                                        
-                                    </select>
-                                 
-                      
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control border-0 p-4" value="{{ old('email')}}" name="email" placeholder="Your email" required="required" />
-                               @error('email')
-                                    <p class="text-light mt-3">{{$message}}</p>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control border-0 p-4" value="{{ old('password')}}" name="password" placeholder="Your Password" required="required" />
-                                </div>
-                                <div>
-                                    <button class="btn btn-dark btn-block border-0 py-3" type="submit">Login</button>
-                                </div>
-                            </form>
-                            <p class="text-light">
-                            Not yet have an account? <a href="/signup" class="text-light">SignUp</a> |
-                            <a href="/password_retrieve" class="text-light">forget password</a>
-
-                            </p>
-                        </div>
+    <body class="inner_page login">
+        <div class="full_container">
+           <div class="container">
+              <div class="center verticle_center full_height">
+                 <div class="login_section">
+                    <div class="logo_login">
+                       <div class="center">
+                          <img width="260" src="{{asset('storage/logo/OSAMAY full logo.png')}}" alt="#" />
+                       </div>
                     </div>
-                </div>
-</div>
+                    <div class="login_form">
+                        <form action="/user/login?id={{isset($id)? $id : ''}}" method="post">
+
+                            @csrf
+                          {{-- <fieldset> --}}
+                             <div class="field">
+
+                                <select class="custom-select border-0 px-4 " style="height: 47px; background:#e8f0fe;"  name="user">
+                                    <option selected>Select a user </option>
+                                    <option value="0" >Admin</option>
+
+                                    <option value="1">Student</option>
+                                    <option value="2">Parent</option>
+                                    <option value="3" >Teacher</option>
+
+                                </select>
+                             </div>
+                             <div class="field">
+                                <label class="label_field">Email Address</label>
+                                <input type="email"value="{{ old('email')}}"  name="email" required="required"  placeholder="E-mail" />
+                                @error('email')
+                                <p class="text-danger mt-3">{{$message}}</p>
+                                @enderror
+                            </div>
+                             <div class="field">
+                                <label class="label_field">Password</label>
+                                <input type="password" value="{{ old('password')}}" name="password" placeholder="Your Password" required="required"  />
+                             </div>
+                             <div class="field">
+                                <p class="text-danger">
+                                    Not yet have an account? <a href="/signup" class="text-danger">SignUp</a> |
+                                    <a href="/password_retrieve" class="text-danger">forget password</a>
+
+                                    </p>
+
+                             </div>
+                             <div class="field margin_0">
+                                <label class="label_field hidden">hidden label</label>
+                                <button class="main_bt" type="submit">Sing In</button>
+                             </div>
+                          {{-- </fieldset> --}}
+                       </form>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+
+
 </x-guestLayout>

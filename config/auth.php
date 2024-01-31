@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'parents' => [
+            'driver' => 'session',
+            'provider' => 'parents', // Make sure you have a provider named 'parents'
+        ]
     ],
 
     /*
@@ -64,7 +68,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
+        'parents' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Parents::class, // Adjust the model accordingly
+            'table' => 'parents',
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

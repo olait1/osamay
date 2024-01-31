@@ -1,51 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Osamay</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+           <!-- site icon -->
+           <link rel="icon" href="{{asset('storage/logo/osamay logo.png')}}" type="image/x-icon" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{{asset('dashboard/css/bootstrap.min.css')}}" />
+      <!-- site css -->
+      <link rel="stylesheet" href="{{asset('dashboard/style.css')}}" />
+      <!-- responsive css -->
+      <link rel="stylesheet" href="{{asset('dashboard/css/responsive.css')}}" />
+      <!-- color css -->
 
-<head>
-    <meta charset="utf-8">
-    <title>ECOURSES - Online Courses HTML Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+      <link rel="stylesheet" href="{{asset('dashboard/css/colors.css')}}" />
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+      <!-- select bootstrap -->
+      <link rel="stylesheet" href="{{asset('dashboard/css/bootstrap-select.css')}}" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" href="{{asset('dashboard/css/perfect-scrollbar.css')}}" />
+      <!-- custom css -->
+      <link rel="stylesheet" href="{{asset('dashboard/css/custom.css')}}" />
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body>
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('css/style.css')}}" rel="stylesheet">
-</head>
-
-<body class="jumbotron">
 {{ $slot }}
-     <!-- Footer End -->
+      <!-- jQuery -->
+      <script src="{{asset('dashboard/js/jquery.min.js')}}"></script>
+      <script src="{{asset('dashboard/js/popper.min.js')}}"></script>
+      <script src="{{asset('dashboard/js/bootstrap.min.js')}}"></script>
+      <!-- wow animation -->
+      <script src="{{asset('dashboard/js/animate.js')}}"></script>
+      <!-- select country -->
+      <script src="{{asset('dashboard/js/bootstrap-select.js')}}"></script>
+      <!-- owl carousel -->
+      <script src="{{asset('dashboard/js/owl.carousel.js')}}"></script>
+      <!-- chart js -->
+      <script src="{{asset('dashboard/js/Chart.min.js')}}"></script>
+      <script src="{{asset('dashboard/js/Chart.bundle.min.js')}}"></script>
+      <script src="{{asset('dashboard/js/utils.js')}}"></script>
+      <script src="{{asset('dashboard/js/analyser.js')}}"></script>
+      <!-- nice scrollbar -->
+      <script src="{{asset('dashboard/js/perfect-scrollbar.min.js')}}"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="{{asset('dashboard/js/custom.js')}}"></script>
+      <script src="{{asset('dashboard/js/chart_custom_style1.js')}}"></script>
 
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-
-    <!-- JavaScript Libraries -->
-    <script src="{{ asset('https://code.jquery.com/jquery-3.4.1.min.js')}}"></script>
-    <script src="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{ asset('lib/easing/easing.min.js')}}"></script>
-    <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="{{ asset('mail/jqBootstrapValidation.min.js')}}"></script>
-    <script src="{{ asset('mail/contact.js')}}"></script>
-
-    <!-- Template Javascript -->
-    <script src="{{ asset('js/main.js')}}"></script>
-</body>
-
+    </body>
 </html>

@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\attempted;
+use App\Models\student;
+use App\Models\parents;
+use App\Models\teacher;
+
 
 class User extends Authenticatable
 {
@@ -19,10 +24,13 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'class',
         'email',
         'password',
-        'course',
+
         'user',
+        'student_id',
+        'passport',
         'created_at',
         'updated_at',
     ];
@@ -46,4 +54,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function classes(){
+        return $this->belongsTo(attempted::class,'user_id','id');
+    }
+
+
+
+public function attempted(){
+    return $this->belongsTo(attempted::class,'user_id','id');
+}
+// student
+public function student_id(){
+    return $this->hasOne(student::class,'user_id','id');
+}
+// parent
+public function parents(){
+    return $this->belongsTO(parents::class,'student_id','id');
+}
+public function teachers(){
+    return $this->hasOne(teacher::class,'user_id','id');
+}
 }

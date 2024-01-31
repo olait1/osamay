@@ -13,18 +13,20 @@ use App\Models\category;
                             <h1 class="m-0">Edit Post </h1>
                         </div>
                         <div class="card-body rounded-bottom bg-primary p-5">
-                            <form method="post" action="/post/edit">
-                                @csrf
+                        <form method="Post" action="/post/edit/{{$course->id}}" enctype="multipart/form-data">  
+                               @csrf
                                 @method('PUT')
                                 <div class="form-group">
                                     <input type="text" class="form-control border-0 p-4" name="name"
                                      value="{{ $course->name }}" placeholder="Lecture Title" required="required" />
-                        
+                               
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="text-light">Tutoria (VIDEO | PDF)</label>
-                                    <input type="file" class="form-control border-0 "   name="book" required="required" />
+                                    <input type="file" class="form-control border-0 "   name="book"  />
                                   
+                                   <!-- <input type="file" class=" form-control border-0 " name="book"  /> -->
+
                                 </div>
                                 @if ($course->format==1)
                                     
@@ -44,8 +46,9 @@ use App\Models\category;
                                 $cot=category::find($key_id);
                               
                                     ?>
+                                    
                                     <select class="custom-select border-0 px-4" style="height: 47px;" name="category_id">
-                                        <option selected>{{$cot->name}}</option>
+                                        <option selected value="{{$key_id}}">{{$cot->name}}</option>
                                     
                                             
                                         <?php 
@@ -64,25 +67,29 @@ use App\Models\category;
                                     </select>
                            
                                 </div>
+                                
+                            
+                                          
                                 <div class="form-group">
-                                    <select class="custom-select border-0 px-4" style="height: 47px;" name="format">
-                                        <option selected>
-                                            <?php
-                                            // dd($course->format);
-
-                                            ?>
+                                    <select id="format" class="custom-select border-0 px-4" style="height: 47px;" name="format">
+                                        <option value="@if ($course->format== 0)
+                                        {{0}}    
+                                        @elseif($course->format== 1)
+                                        {{1}}
+                                        @else
+                                        ''
+                                        @endif" selected>
+                           
                                             @if ($course->format== 0)
                                                  PDF 
                                             @elseif ($course->format== 1)
                                                  VIDEO 
                                             @endif
-
-
                                         </option>
                                         <option value="<?php
                                         if ($course->format== 0) {
-                                            # code...
-                                            echo"";
+                                    
+                                            echo '';
                                         }else{
                                             echo 0;
                                         }
@@ -103,23 +110,30 @@ use App\Models\category;
                                                Select a format
                                                @else
                                                VIDEO
-                                               
-                                            @endif</option>
-                              
-                                        
+
+                                            @endif
+                                        </option>
                                     </select>
                                
                                
                                 </div>
                                 <div>
-                                    <button class="btn btn-dark btn-block border-0 py-3" type="submit">Submit</button>
+                                    <button class="btn btn-dark btn-block border-0 py-3" type="submit">Update</button>
                                 </div>
                             </form>
                    
                         </div>
                     </div>
+
                 </div>
             
        
     </div>
     </x-guestLayout>
+    <script>
+        var format=document.getElementById('format');
+        format.onchange=function(){
+        console.log(format.value,format);
+
+        }
+    </script>
